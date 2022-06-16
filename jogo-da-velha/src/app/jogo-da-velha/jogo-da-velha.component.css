@@ -2,7 +2,9 @@ div {
   width: 400px;
   height: 400px;
 text-align: center;
-font-family: 'Press Start 2P', cursive;
+/* font-family: 'Press Start 2P', cursive; */
+font-family: 'Amatic SC', cursive;
+font-size: 150%;
 }
 
 div.principal {
