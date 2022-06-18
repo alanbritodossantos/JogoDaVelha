@@ -54,4 +54,8 @@ export class JogoDaVelhaComponent implements OnInit {
   get jogador():number{
     return this.jogoDaVelhaService.jogador;
   }
+
+  novoJogo():void{
+    this.jogoDaVelhaService.novoJogo();
+  }
 }
