@@ -1,27 +1,86 @@
-# JogoDaVelha
+<div>
+  <h2>Jogo da velha</h2>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
+  <!-- tela inicial -->
+  <div class="principal" *ngIf="showInicio">
+    <a href="#"
+       class="botao"
+       (click)="iniciarJogo()">
+       Iniciar
+    </a>
+  </div><!-- fim tela inicial -->
 
-## Development server
+  <!-- tabuleiro -->
+  <div *ngIf="showTabuleiro">
+    <ul>
+      <li class="kz-border-bottom kz-border-right"
+        [class.kz-img-x]="exibirX(0, 0)"
+        [class.kz-img-o]="exibirO(0, 0)"
+        [class.kz-cor-vitoria]="exibirVitoria(0, 0)"
+        (click)="jogar(0, 0)"></li>
+      <li class="kz-border-bottom kz-border-right"
+        [ngClass]= "{
+          'kz-img-x': exibirX(0, 1),
+          'kz-img-o': exibirO(0, 1),
+          'kz-cor-vitoria': exibirVitoria(0, 1) }"
+        (click)="jogar(0, 1)"></li>
+      <li class="kz-border-bottom"
+        [ngClass]= "{
+          'kz-img-x': exibirX(0, 2),
+          'kz-img-o': exibirO(0, 2),
+          'kz-cor-vitoria': exibirVitoria(0, 2) }"
+        (click)="jogar(0, 2)"></li>
+      <li class="kz-border-bottom kz-border-right"
+        [ngClass]= "{
+          'kz-img-x': exibirX(1, 0),
+          'kz-img-o': exibirO(1, 0),
+          'kz-cor-vitoria': exibirVitoria(1, 0) }"
+        (click)="jogar(1, 0)"></li>
+      <li class="kz-border-bottom kz-border-right"
+        [ngClass]= "{
+          'kz-img-x': exibirX(1, 1),
+          'kz-img-o': exibirO(1, 1),
+          'kz-cor-vitoria': exibirVitoria(1, 1) }"
+        (click)="jogar(1, 1)"></li>
+      <li class="kz-border-bottom"
+        [ngClass]= "{
+          'kz-img-x': exibirX(1, 2),
+          'kz-img-o': exibirO(1, 2),
+          'kz-cor-vitoria': exibirVitoria(1, 2) }"
+        (click)="jogar(1, 2)"></li>
+      <li class="kz-border-right"
+        [ngClass]= "{
+          'kz-img-x': exibirX(2, 0),
+          'kz-img-o': exibirO(2, 0),
+          'kz-cor-vitoria': exibirVitoria(2, 0) }"
+        (click)="jogar(2, 0)"></li>
+      <li class="kz-border-right"
+        [ngClass]= "{
+          'kz-img-x': exibirX(2, 1),
+          'kz-img-o': exibirO(2, 1),
+          'kz-cor-vitoria': exibirVitoria(2, 1) }"
+        (click)="jogar(2, 1)"></li>
+      <li [ngClass]= "{
+            'kz-img-x': exibirX(2, 2),
+            'kz-img-o': exibirO(2, 2),
+            'kz-cor-vitoria': exibirVitoria(2, 2) }"
+          (click)="jogar(2, 2)"></li>
+    </ul>
+  </div><!-- fim tabuleiro -->
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+  <!-- tela final -->
+  <div *ngIf="showFinal">
+    <span>
+    <p *ngIf="jogador==2">Você venceu!!!</p>
+    <p *ngIf="jogador==1">Você perdeu...</p>
+    <p *ngIf="jogador==0">O jogo terminou empatado...</p>
+    <br />
+    <a href="#"
+         class="botao"
+         (click)="novoJogo()">
+         Jogar novamente
+      </a>
+    </span>
+  </div><!-- fim tela final -->
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+</div>
